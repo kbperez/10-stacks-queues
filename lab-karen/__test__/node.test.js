@@ -4,7 +4,7 @@ const Node = require('../lib/node'); //require node.js functionality
 require('jest');
 
 describe('Node Data Structure Module', function () {
-  beforeEach(() => new Node(1)); //create new instance of node
+  beforeEach(() => this.node = new Node(1)); //create new instance of node
 
   describe('default properties', () => { //test node construcor
 
@@ -16,8 +16,9 @@ describe('Node Data Structure Module', function () {
       expect(this.node.next).toBeNull();
     });
 
-    it('should throw an error when no val is passed in', () =>  {
-      expect().toThrow();
-    });
+    // let errorCheckNode = new Node();
+    // it('should throw an error when no val is passed in', () =>  {
+    //   expect(errorCheckNode).toThrow();
+    // });
   });
 });

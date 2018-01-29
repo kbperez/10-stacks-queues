@@ -23,6 +23,7 @@ module.exports = class { //anonomous class
     let temp = this.top; //set up a temporary pointer
     this.top = temp.next; //set the top pointer to the next item in stack
     temp.next = null; //remove item from stack by unlinking .next
+    this.size--; //decrement size
 
     return temp; //return the old top node
   }

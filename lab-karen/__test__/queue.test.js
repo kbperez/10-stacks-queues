@@ -27,7 +27,7 @@ describe('Queue Data Structure Module', function () {
       expect(this.queue.size).toEqual(20);
     });
 
-    it('should add a new node with the val of 1 to the top of the queue', () => {
+    it('should add a new node with the val of 1 to the back of the queue', () => {
       this.queue.enqueue(1); //add value to queue
       expect(this.queue.back.val).toEqual(1);
     });
@@ -35,13 +35,15 @@ describe('Queue Data Structure Module', function () {
 
   describe('#dequeue', () => { //test dequeue functionality
     it('should return an Error if the queue is empty', () => {
-      expect(this.queue.size).toThrow();
-    })
+      expect(() => this.queue.dequeue()).toThrowError();
+    });
 
     it('should remove the front node from the queue', () => {
-      this.queue.dequeue(1); //add value to queue
-      expect(this.queue.front.val).toEqual(1);
-      expect(this.queue.dequeue().val).toEqual(1);
+      this.queue.enqueue(1); //add value to queue
+      this.queue.enqueue(2); //add value to queue
+      this.queue.dequeue();
+      expect(this.queue.front.val).toEqual(2);
+      // expect(this.queue.dequeue().val).toEqual(1);
     });
   });
 });

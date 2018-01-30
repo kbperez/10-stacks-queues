@@ -14,7 +14,11 @@ module.exports = class { //anonomous class
 
     let node = new Node(val);  //create a new node
 
-    this.back ? this.back.next = node : this.front = node;
+    if(this.back) {
+      this.back.next = node;
+    } else {
+      this.front = node;
+    }
     this.back = node;
     this.size++;
 
@@ -22,13 +26,14 @@ module.exports = class { //anonomous class
   }
 
   dequeue() {   //remove an item from the front of the queue
-    if(this.size === 0) throw new Error ('The queue is empty');
+
+    if(!this.front && !this.back) throw new Error('Queue is empty.');
 
     let temp = this.front; //set up a temporary pointer
     this.front = this.front.next; //set the front pointer to the next item in queue
     temp.next = null; //remove item from queue by unlinking .next
     this.size-- ;//decrease size of queue
-
+    if (this.size === 0) this.back = null;
     return temp; //return the old front node
   }
 };

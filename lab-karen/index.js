@@ -5,23 +5,29 @@ let Stack = require('./lib/stack');
 let testStack = new Stack;
 
 testStack.push(1);
-console.log(testStack);
+console.log('push', testStack);
 
 testStack.pop();
-console.log(testStack);
+console.log('pop', testStack);
 
 testStack.push(2);
 testStack.push(3);
 testStack.peek();
-console.log(testStack)
+console.log('peek', testStack);
 
 let Queue = require('./lib/queue');
 
 let testQueue = new Queue;
 
+// testQueue.dequeue();
+// console.error(err);
+
+
 testQueue.enqueue(4);
 testQueue.enqueue(5);
-console.log(testQueue);
+console.log('enqueue', testQueue);
 
 testQueue.dequeue();
-console.log(testQueue);
+console.log('dequeue', testQueue);
+testQueue.dequeue();
+console.log('dequeue', testQueue);
